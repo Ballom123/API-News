@@ -9,7 +9,8 @@ class Newsroom:
         self.keywords = "q=" + keyword
         self.language = "language=" + lang
         self.date = "to=" + date.strftime("%Y-%m-%d")
-        self._apikey = "apiKey=3c8ce219b3e04539988f346c59acf3a2"
+        #Get your own API key from newsapi.org!
+        self._apikey = "apiKey="
 
         if newsbase == 1:
             self.newsbase = "/v2/everything?"
@@ -30,7 +31,7 @@ class Newsroom:
 
     def compile_url(self):
         #test url, "iphone", "english", "by popularity"
-        #self.news_url = "https://newsapi.org/v2/everything?q=apple&language=en&from=2022-07-16&to=2022-07-16&sortBy=popularity&apiKey=3c8ce219b3e04539988f346c59acf3a2"
+        #self.news_url = "https://newsapi.org/v2/everything?q=apple&language=en&from=2022-07-16&to=2022-07-16&sortBy=popularity&apiKey="
         self.news_url = f"https://newsapi.org{self.newsbase}{self.keywords}&{self.language}&{self.date}&{self.sortby}&{self._apikey}"
 
     def connection_to_api(self):
@@ -54,7 +55,6 @@ class Newsroom:
 
 
 
-#API KEY = 3c8ce219b3e04539988f346c59acf3a2
 
 if __name__ == "__main__":
     #ask for some variables for what news you want to see
